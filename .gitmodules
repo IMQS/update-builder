@@ -1,0 +1,3 @@
+[submodule "src/github.com/IMQS/updater"]
+	path = src/github.com/IMQS/updater
+	url = git@github.com:IMQS/updater.git
