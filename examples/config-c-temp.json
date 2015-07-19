@@ -1,0 +1,20 @@
+{
+	"DeployUrl": "http://localhost:8080/files",
+	"BinDir": {
+		"LocalPath": "c:/temp/test/imqsbin",
+		"LocalPathNext": "c:/temp/test/imqsbin_next",
+		"Remote": {
+			"Path": "channels/stable"
+		}
+	},
+	"ConfDir": {
+		"LocalPath": "c:/temp/test/imqsvar/conf",
+		"LocalPathNext": "c:/temp/test/imqsvar/conf_next",
+		"Remote": {
+			"Path": "conf/tester"
+		}
+	},
+	"LogFile": "c:/temp/test/imqsvar/logs/ImqsUpdater.log",
+	"CheckIntervalSeconds": 15,
+	"ServiceStopWaitSeconds": 10
+}

@@ -1,3 +1,9 @@
 [submodule "src/github.com/IMQS/updater"]
 	path = src/github.com/IMQS/updater
 	url = git@github.com:IMQS/updater.git
+[submodule "src/github.com/IMQS/log"]
+	path = src/github.com/IMQS/log
+	url = git@github.com:IMQS/log
+[submodule "src/gopkg.in/natefinch/lumberjack.v2"]
+	path = src/gopkg.in/natefinch/lumberjack.v2
+	url = git@github.com:natefinch/lumberjack

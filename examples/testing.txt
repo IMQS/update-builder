@@ -1,0 +1,15 @@
+Create the following files:
+C:\temp\test\server\channels\stable\a.txt
+C:\temp\test\server\channels\stable\b.txt
+C:\temp\test\server\conf\tester\a-config-file.json
+
+Generate manifests:
+go run src/github.com/IMQS/updater/updater-cmd/main.go buildmanifest c:/temp/test/server/channels/stable
+go run src/github.com/IMQS/updater/updater-cmd/main.go buildmanifest c:/temp/test/server/conf/tester
+
+Run a toy HTTP server:
+go run src/github.com/IMQS/updater/server-cmd/main.go serve c:\temp\test\server
+
+Run some updates:
+go run src/github.com/IMQS/updater/updater-cmd/main.go -config=examples\config-c-temp.json download
+go run src/github.com/IMQS/updater/updater-cmd/main.go -config=examples\config-c-temp.json apply
