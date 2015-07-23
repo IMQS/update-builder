@@ -1,15 +1,34 @@
-Create the following files:
-C:\temp\test\server\channels\stable\a.txt
-C:\temp\test\server\channels\stable\b.txt
-C:\temp\test\server\conf\tester\a-config-file.json
 
-Generate manifests:
-go run src/github.com/IMQS/updater/updater-cmd/main.go buildmanifest c:/temp/test/server/channels/stable
-go run src/github.com/IMQS/updater/updater-cmd/main.go buildmanifest c:/temp/test/server/conf/tester
+Initialize server with virgin example localstate1:
+	On deploy.imqs.co.za:
+		sudo su testrsync
+		cd ~
+		rm -rf incoming
+		mkdir incoming && mkdir incoming/channels && mkdir incoming/versions
+		TODO: conf
+	On local:
+		upload-build.rb BinSrc=/cygdrive/c/dev/head/updater/examples/localstate1
+		expected output:
+			Some changes need to be made to 'versions'
+			Detected completely new versions: 1, 2, 3
+			WARNING: Unable to find an existing version to bootstrap from.
+			Synchronizing versions
+			Synchronizing channels
 
-Run a toy HTTP server:
-go run src/github.com/IMQS/updater/server-cmd/main.go serve c:\temp\test\server
+TODO: Then, testing deployment of that version
+	(upload-build should trigger a "process-incoming" command on the server)
+	(go run src/github.com/IMQS/updater/updater-cmd/main.go -config=examples\config-c-temp.json download)
+	(go run src/github.com/IMQS/updater/updater-cmd/main.go -config=examples\config-c-temp.json apply)
 
-Run some updates:
-go run src/github.com/IMQS/updater/updater-cmd/main.go -config=examples\config-c-temp.json download
-go run src/github.com/IMQS/updater/updater-cmd/main.go -config=examples\config-c-temp.json apply
+Then, testing deployment of version 3:
+	On local:
+		upload-build.rb BinSrc=/cygdrive/c/dev/head/updater/examples/localstate2
+		expected output:
+			Some changes need to be made to 'versions'
+			Detected completely new versions: 3
+			Using version 2 to bootstrap new version 3
+			Synchronizing versions
+			Synchronizing channels
+
+TODO: Then, testing deployment of that version
+	(same as above)

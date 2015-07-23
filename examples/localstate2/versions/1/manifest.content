@@ -1,0 +1,13 @@
+{
+	"Files": [
+		{
+			"Name": "a.txt",
+			"Hash": "a138297fbcf4ca7b5a4bbc8c8a530f6e59140216548ce0d795afcc93f79186e6"
+		},
+		{
+			"Name": "b.txt",
+			"Hash": "57877f6f38441506fc5a3dad29219f8dd848908b8f1686ffe4fc42e620f522cf"
+		}
+	],
+	"Dirs": null
+}
